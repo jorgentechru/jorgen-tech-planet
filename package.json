@@ -1,0 +1,8 @@
+{
+  "name": "jorgen-tech-planet",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Interactive frontend demo for JORGEN TECH PLANET",
+  "type": "module",
+  "scripts": {"start": "python -m http.server 8000 --directory dist", "test": "node tests/domain.mjs && node tests/contacts.mjs", "check": "node --check dist/app.js && node --check dist/author.js && node --check dist/world.js && node --check dist/modules.js && node --check dist/camera.js && node --check dist/data.js"}
+}

@@ -1,0 +1,175 @@
+/* Контакты, русскоязычная навигация и рекламный блок на главной. */
+:root { --contact-green:#344c37; --contact-soft:#e6ecdf; }
+header { gap: 20px; }
+header nav { align-items:center; }
+header nav button { white-space:nowrap; }
+header nav .nav-contact {
+  color:#fff; background:var(--contact-green); border:1px solid var(--contact-green);
+  border-radius:4px; padding:12px 18px; transition:background .2s;
+}
+header nav .nav-contact:hover { background:#526c4c; }
+#world::before {
+  content:"САЙТЫ И СЕРВИСЫ";
+  position:absolute; left:-2vw; bottom:18%; white-space:nowrap;
+  font-weight:900; letter-spacing:-.08em; line-height:1;
+  font-size:clamp(84px,13vw,230px); color:#3e6141; opacity:.048;
+  pointer-events:none; user-select:none; z-index:0;
+}
+#world #map { position:relative; z-index:0; }
+#world .intro { z-index:2; }
+#world .coordinates { z-index:1; }
+#world .controls { z-index:3; }
+#world #card { z-index:4; }
+.home-promo {
+  position:absolute; z-index:2; right:42px; bottom:150px;
+  width:min(370px,34vw); padding:26px 27px 25px;
+  background:linear-gradient(140deg,rgba(249,250,244,.96),rgba(228,235,218,.97));
+  border:1px solid #b7c7ae; border-radius:7px;
+  box-shadow:0 18px 50px rgba(42,62,42,.16);
+  transition:opacity .25s, visibility .25s;
+}
+.home-promo::before {
+  content:""; position:absolute; left:0; top:0; bottom:0;
+  width:4px; border-radius:7px 0 0 7px; background:#627c58;
+}
+.home-promo .promo-label {
+  margin:0 0 15px; font-size:9px; letter-spacing:1.6px;
+  line-height:1.6; color:#53654d; font-weight:700;
+}
+.promo-label span { font-size:9px; color:#6c9562; margin-right:6px; }
+.home-promo h2 {
+  font-size:clamp(25px,2.4vw,34px); font-weight:400; line-height:1.12;
+  letter-spacing:-1.2px; margin:0 0 14px;
+}
+.home-promo h2 em { font-family:Georgia,serif; font-weight:400; color:#677c5d; }
+.home-promo .promo-description { color:#667261; font-size:12px; line-height:1.65; margin:0 0 20px; }
+.home-promo .promo-email-title { font-size:10px; letter-spacing:1.5px; color:#64765e; margin:0 0 6px; font-weight:700; }
+.home-promo .promo-email {
+  color:#304d37; font-size:19px; font-weight:700; letter-spacing:-.4px;
+  overflow-wrap:anywhere; margin:0 0 17px;
+}
+.promo-actions { display:flex; align-items:stretch; gap:8px; flex-wrap:wrap; }
+.promo-actions button { font-size:11px; min-height:43px; }
+.promo-actions .primary { border-radius:4px; }
+.promo-copy { border:1px solid #adbdab; background:rgba(255,255,255,.55); color:#354a35; }
+.promo-copy:hover { background:#f5f7f0; }
+#world.has-selection .home-promo,
+body.entering .home-promo { opacity:0; visibility:hidden; pointer-events:none; }
+#world .hint { max-width:350px; line-height:1.7; z-index:2; bottom:150px; }
+footer button {
+  padding:10px 13px; font-size:10px; letter-spacing:.3px; white-space:nowrap;
+  background:#e6ecdf; border:1px solid #cad5c4; border-radius:3px;
+}
+footer button:hover { background:#d8e4d0; }
+
+/* Контакты в модальных окнах — отдельный блок, а не кнопки внутри абзаца. */
+dialog { max-width:720px; width:calc(100% - 36px); padding:37px 42px; border-radius:8px; }
+dialog h2 { font-size:clamp(29px,4vw,42px); line-height:1.13; letter-spacing:-1.2px; margin:16px 0 20px; }
+dialog .dialog-lead { font-size:16px; color:#495b48; line-height:1.75; }
+dialog p { font-size:14px; line-height:1.75; }
+#close { position:relative; z-index:2; font-size:22px; padding:2px 8px; background:none; }
+.contact-details {
+  margin-top:26px; padding:23px 24px 20px;
+  background:linear-gradient(135deg,#e6eee0,#f0f2e9);
+  border:1px solid #c7d5be; border-radius:5px;
+}
+.contact-details .eyebrow { margin:0 0 10px; }
+.contact-details-label { color:#596d56; margin:0!important; font-size:12px; }
+.contact-address {
+  font-size:clamp(19px,3vw,25px)!important; font-weight:700; letter-spacing:-.6px;
+  color:#274a30!important; line-height:1.5!important; overflow-wrap:anywhere; margin:4px 0 18px!important;
+}
+.contact-links { display:flex; gap:10px; flex-wrap:wrap; justify-content:flex-start; min-width:0; }
+.contact-link {
+  display:inline-flex; align-items:center; justify-content:center;
+  flex:0 0 auto; max-width:100%; white-space:normal; text-align:center;
+  min-height:43px; border-radius:4px; font-size:12px; line-height:1.3;
+  padding:12px 15px; border:1px solid #abbda8; background:rgba(255,255,255,.5);
+}
+.contact-link-primary { color:#fff; background:var(--contact-green); border-color:var(--contact-green); }
+.contact-link-primary:hover { color:#fff; background:#526c4c; }
+.contact-details .contact-help { font-size:11px; margin:15px 0 0; color:#677765; line-height:1.6; }
+
+/* Повторяем предложение о сотрудничестве в каждом разделе. */
+#app .contact-panel {
+  position:relative; overflow:hidden; display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr);
+  align-items:center; gap:28px; padding:38px;
+  background:linear-gradient(125deg,#dee9d8,#eff1e7); border:1px solid #cbd7c3; border-radius:6px;
+}
+#app .contact-panel::before {
+  content:"СВЯЗАТЬСЯ"; position:absolute; right:-12px; bottom:-25px;
+  font-size:75px; letter-spacing:-5px; font-weight:900; color:#406447;
+  opacity:.045; pointer-events:none; white-space:nowrap;
+}
+#app .contact-panel > * { position:relative; z-index:1; min-width:0; }
+#app .contact-panel h2 { font-size:clamp(24px,3vw,34px); line-height:1.2; letter-spacing:-.7px; margin:10px 0; }
+#app .contact-panel p:not(.eyebrow) { font-size:13px; line-height:1.6; }
+#app .contact-panel .panel-email { font-size:17px!important; font-weight:700; color:#34533a!important; overflow-wrap:anywhere; }
+#app .contact-panel .contact-links { align-items:center; justify-content:flex-start; }
+
+/* Планшеты: компактнее, чтобы рекламный блок не перекрывал карту слишком сильно. */
+@media (min-width:761px) and (max-width:1050px) {
+  header { padding:24px 26px; }
+  #world .intro { left:4%; }
+  .home-promo { right:25px; width:315px; padding:20px 22px; }
+  .home-promo h2 { font-size:26px; }
+  .home-promo .promo-description { margin-bottom:12px; }
+  #world .coordinates { right:28px; }
+}
+
+/* На телефоне сначала предложение, затем интерактивная карта. */
+@media (max-width:760px) {
+  header { padding:18px 22px; flex-wrap:wrap; gap:12px; align-items:flex-start; }
+  header .brand { width:100%; font-size:21px; }
+  header .brand small { font-size:7px; margin-top:5px; letter-spacing:1.4px; }
+  header nav { width:100%; justify-content:space-between; gap:6px; }
+  header nav button { font-size:11px; padding:9px 9px; }
+  header nav .nav-contact { padding:9px 12px; }
+  #world {
+    display:flex; flex-direction:column; height:auto; min-height:0;
+    padding:142px 0 105px; overflow:visible;
+  }
+  #world::before { top:350px; bottom:auto; left:0; font-size:68px; opacity:.038; }
+  #world .intro {
+    position:relative; order:1; top:auto; left:auto; margin:0 22px;
+    max-width:550px; pointer-events:auto;
+  }
+  #world .intro h1 { font-size:clamp(32px,8vw,43px); margin:12px 0; }
+  #world .intro>p:last-child { display:block; font-size:12px; line-height:1.6; margin:0 0 12px; }
+  #world .author-intro { margin-bottom:10px; }
+  #world .home-promo {
+    position:relative; order:2; inset:auto; width:auto; margin:8px 22px 16px;
+    padding:22px; box-shadow:0 12px 35px rgba(42,62,42,.12);
+  }
+  #world .home-promo h2 { font-size:28px; }
+  #world .home-promo .promo-description { margin-bottom:14px; }
+  #world .home-promo .promo-email { font-size:19px; }
+  #world #map {
+    position:relative; order:3; inset:auto; display:block; width:100%;
+    height:clamp(295px,75vw,480px); min-height:0; padding:0;
+  }
+  #world .hint {
+    position:relative; order:4; inset:auto; margin:6px 22px 8px;
+    max-width:none; line-height:1.6; font-size:11px;
+  }
+  #world #card {
+    position:relative; order:5; inset:auto; width:auto; margin:12px 22px 0; padding:21px;
+  }
+  #world .controls { position:relative; order:6; inset:auto; margin:12px 22px 0; width:max-content; }
+  #world .coordinates { display:none; }
+  #app .contact-panel { grid-template-columns:1fr; gap:16px; padding:25px; }
+  footer { padding:0 20px; }
+  footer button { font-size:10px; padding:10px; }
+  dialog { padding:28px 22px; max-height:85svh; }
+  .contact-details { padding:19px 16px; }
+  .contact-link { font-size:11px; }
+}
+@media (max-width:370px) {
+  #world .promo-actions button { flex:1 1 100%; }
+  footer { padding:0 12px; }
+  footer span { font-size:8px; letter-spacing:.1px; }
+  footer button { padding:9px 7px; font-size:9px; }
+}
+@media(prefers-reduced-motion:reduce) {
+  .home-promo { transition:none; }
+}

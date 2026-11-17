@@ -1,0 +1,13 @@
+import assert from 'node:assert/strict';
+const memory=new Map();globalThis.sessionStorage={getItem:k=>memory.get(k)??null,setItem:(k,v)=>memory.set(k,v)};
+const {getState,estimate,cartTotal,book,checkout,reset}=await import('../dist/data.js');
+assert.equal(estimate(['oil','diagnostics'],'Седан'),140);
+assert.equal(estimate(['oil','diagnostics'],'SUV'),168);
+assert.throws(()=>book('Завтра · 10:00'));
+getState().services=['oil'];book('Завтра · 10:00');assert.equal(getState().bookings.length,1);
+assert.throws(()=>book('Завтра · 10:00'));
+getState().bookings[0].status='Отменено';book('Завтра · 10:00');
+getState().cart={lamp:2,vase:1};assert.equal(cartTotal(getState().cart),328);
+const o=checkout();assert.equal(o.total,328);assert.deepEqual(getState().cart,{});assert.throws(checkout);
+reset();assert.equal(getState().orders.length,0);assert.equal(getState().bookings.length,0);
+console.log('Passed: estimates, SUV coefficient, empty booking, slot collision/cancellation, cart, checkout, reset');

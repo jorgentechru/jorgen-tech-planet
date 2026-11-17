@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>JORGEN TECH PLANET — разработка сайтов и веб-сервисов</title>
+  <meta name="description" content="JORGEN TECH PLANET — интерактивное портфолио веб-разработчика. Сайты, веб-сервисы, интерфейсы и авторские проекты. Связь: jorgentech@yandex.ru">
+  <meta name="theme-color" content="#f6f5f1">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <meta property="og:title" content="JORGEN TECH PLANET">
+  <meta property="og:description" content="Сайты, веб-сервисы и цифровые идеи. Открывайте пространства, смотрите примеры и предлагайте свой проект.">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="contact-redesign.css">
+</head>
+<body>
+  <header>
+    <a class="brand" href="#/" aria-label="На главную JORGEN TECH PLANET">
+      JORGEN<span> TECH</span> PLANET
+      <small>САЙТЫ · СЕРВИСЫ · ИДЕИ</small>
+    </a>
+    <nav aria-label="Основная навигация">
+      <button id="projects" type="button">Разделы <span>04</span></button>
+      <button id="about" type="button">Обо мне</button>
+      <button id="contact-top" type="button" class="nav-contact">Связаться ↗</button>
+    </nav>
+  </header>
+
+  <main id="world">
+    <div class="intro">
+      <div class="author-intro">
+        <img class="author-portrait" src="portrait.jpg" alt="Портрет автора проекта" onerror="this.closest('.author-intro').hidden=true">
+        <span>АВТОР ПРОЕКТА</span>
+      </div>
+      <p class="eyebrow">ИНТЕРАКТИВНОЕ ПОРТФОЛИО</p>
+      <h1>Своя орбита.<br><em>Для цифровых идей.</em></h1>
+      <p>Изучайте мои проекты на планете.<br>А если нужен свой сайт — напишите мне.</p>
+    </div>
+
+    <section id="home-promo" class="home-promo" aria-label="Заказать сайт или связаться с разработчиком"></section>
+
+    <svg id="map" viewBox="0 0 1200 800" aria-label="Интерактивный изометрический остров с четырьмя разделами">
+      <defs><filter id="shadow" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="16"/></filter></defs>
+      <g id="camera"></g>
+    </svg>
+
+    <div class="hint">Нажмите на здание, чтобы открыть раздел · Карту можно двигать</div>
+    <aside id="card" hidden></aside>
+    <div class="controls" aria-label="Управление картой">
+      <button id="minus" type="button" aria-label="Уменьшить">−</button>
+      <output id="zoom">100%</output>
+      <button id="plus" type="button" aria-label="Увеличить">+</button>
+      <button id="reset" type="button" aria-label="Весь остров">⌖</button>
+      <button id="motion" type="button" aria-label="Переключить анимацию">Ⅱ</button>
+    </div>
+    <div class="coordinates">ИНТЕРАКТИВНАЯ КАРТА<br>4 РАЗДЕЛА / 1 ПЛАНЕТА</div>
+  </main>
+
+  <main id="app" hidden></main>
+
+  <footer>
+    <span><i></i> JORGEN TECH PLANET <b>ДЕМО</b></span>
+    <span>Цифровые идеи становятся реальностью.</span>
+    <button id="footer-contact" type="button">Написать разработчику ↗</button>
+  </footer>
+
+  <dialog id="dialog" aria-label="Информация о проекте">
+    <button id="close" type="button" aria-label="Закрыть">×</button>
+    <div id="dialog-content"></div>
+  </dialog>
+  <noscript><p style="position:fixed;top:120px;left:30px;z-index:5;background:white;padding:20px">Для интерактивной лаборатории включите JavaScript.</p></noscript>
+  <script type="module" src="app.js"></script>
+</body>
+</html>
